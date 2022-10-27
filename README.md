@@ -3,7 +3,7 @@ Tic_Git_Journey is a git house built for menbers in technical department of SCUT
 # Git-Test
 
 #### Description
-测试giteee连接pycharm
+Try to use GitHub
 
 #### Software Architecture
 Software architecture description
