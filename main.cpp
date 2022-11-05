@@ -5,6 +5,7 @@
 * On 2022/10/28            *              
 ****************************/
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int* GenerateArray(int max_size);//返回一个一维数组(已给定数组长度最大值)，数组的值将会由函数内的输入决定
@@ -26,7 +27,21 @@ int* arrayStrip(int begin, int end);//给出两个索引值，截取出两个索
 
 
 int main(){
-    /*** Test ***/
-
+    //cout << *GenerateArray(4) << endl;
+    
     return 0;
+}
+
+int * GenerateArray(int max_size)
+{
+    const int N = 2e5+10;
+    static int n[N];
+    int input;
+    for(int i = 0;i<max_size;i++)
+    {
+        cin >> input;
+        n[i] = input;
+        //cout << n[i];
+    }
+    return n;
 }
