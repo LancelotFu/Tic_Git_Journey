@@ -7,26 +7,107 @@
 #include <iostream>
 using namespace std;
 
-int* GenerateArray(int max_size);//è¿”å›ä¸€ä¸ªä¸€ç»´æ•°ç»„(å·²ç»™å®šæ•°ç»„é•¿åº¦æœ€å¤§å€¼)ï¼Œæ•°ç»„çš„å€¼å°†ä¼šç”±å‡½æ•°å†…çš„è¾“å…¥å†³å®š
-void printArray(int* arr, int length);//éå†æ•°ç»„
-int insertNum(int* arr, int idx, int num);//åœ¨ç¬¬idxä½åé¢æ’å…¥num, è¿”å›æ’å…¥çš„numçš„idx
-int removeNum(int* arr, int idx);//åˆ é™¤ç´¢å¼•ä¸ºidxçš„å€¼ï¼Œåˆ é™¤æˆåŠŸåˆ™è¿”å›idxç´¢å¼•çš„å€¼
-bool updateNum(int* arr, int idx, int num);//æ›´æ–°ç¬¬idxä½å…ƒç´ ä¸ºnum
-bool pop(int* arr);//åˆ é™¤æ•°ç»„çš„0å·å…ƒç´ 
-bool push(int* arr, int num);//ç»™æ•°ç»„æ·»åŠ æ–°çš„å…ƒç´ ,æ·»åŠ åœ¨æœ€å
-bool destroyArray();//å°†æ•°ç»„ä»å †åŒºåˆ é™¤
-const int& top(int* arr);//è·å–æ•°ç»„çš„0å·å…ƒç´ ï¼Œè¿”å›å€¼
-const int& indexOf(int* arr, int num);//æ ¹æ®è¾“å…¥å…ƒç´ çš„å€¼è¿”å›å½“å‰å…ƒç´ çš„ç¬¬ä¸€ä¸ªç´¢å¼•å€¼ï¼Œå¦‚æœæ— ï¼Œåˆ™è¿”å›-1
-const int& getValue(int* arr, int begin, int end, int idx);//æ ¹æ®æ‰€ç»™çš„indexï¼Œè¿”å›æ•°ç»„ç´¢å¼•å€¼ä¸ºindexçš„å€¼
-int* arraySort(bool key = true);//æ ¹æ®æ‰€ç»™çš„æ’åºå…³é”®è¯keyå†³å®šæ’åºæ–¹å¼ï¼škey=trueåˆ™æ’å‡åºï¼Œå¿«æ’ï¼Œå†’æ³¡ï¼Œæ’å…¥ï¼Œé€‰æ‹©éƒ½å¯ä»¥ï¼Œä¸é™æ–¹å¼
-int* arrayReverse();//æ•°ç»„é€†åº
-int* arrayStrip(int begin, int end);//ç»™å‡ºä¸¤ä¸ªç´¢å¼•å€¼ï¼Œæˆªå–å‡ºä¸¤ä¸ªç´¢å¼•å€¼ä¹‹é—´çš„æ•°ç»„ï¼Œæ³¨æ„ï¼Œç´¢å¼•å€¼å¯ä»¥ä¸ºè´Ÿæ•°ï¼Œæ­¤æ—¶é€†å‘æˆªå–
+int* GenerateArray(int max_size)
+{
+	int arr[max_size];
+	for(int i=0;i<=max_size-1;i++)
+	{
+		arr[i]=i;
+	}
+	return arr;
+}
+//·µ»ØÒ»¸öÒ»Î¬Êı×é(ÒÑ¸ø¶¨Êı×é³¤¶È×î´óÖµ)£¬Êı×éµÄÖµ½«»áÓÉº¯ÊıÄÚµÄÊäÈë¾ö¶¨
+void printArray(int* arr, int length)
+{
+	int array[length];
+	for(int i=0;i<=length-1;i++)
+	{
+		array[i]=i;
+	}
+	arr=array;
+	for(int n=0;n<=length-1;n++)
+	{
+		cout<<*(arr+n)<<" ";
+	}
+	cout<<endl;
+}
+//±éÀúÊı×é
+int insertNum(int* arr, int idx, int num)
+{
+	int array[100];
+	arr=array;
+	if(idx>99)
+	{
+		return 1;
+	}
+	else
+	{
+		for(int i=0;i<=100;i++)
+		{
+			arr[i]=i;
+		}
+		for(int x=99;x>=idx+1;x--)
+		{
+			arr[x+1]=arr[x];
+		}
+		*(arr+idx+1)=num;
+		for(int j=0;j<=100;j++)
+		{
+			cout<<arr[j]<<' ';
+		}
+		return idx+1;
+	}
+}
+//ÔÚµÚidxÎ»ºóÃæ²åÈënum, ·µ»Ø²åÈëµÄnumµÄidx
+int removeNum(int* arr, int idx)
+{
+	int array[100];
+	int i;
+	arr=array;
+	if(idx>99) return 1; 
+	else 
+	{
+		for(i=0;i<=99;i++)
+		{
+			arr[i]=i;
+		}
+		for(i=0;i<=99;i++)
+		{
+			cout<<arr[i]<<" ";
+		}
+		int temp=arr[idx];
+		for(i=idx;i<=98;i++)
+		{
+			arr[i]=arr[i+1];
+		}
+		for(i=0;i<=98;i++)
+		{
+			cout<<arr[i]<<" ";
+		}
+		return temp;
+	}
+	
+	
+}
+//É¾³ıË÷ÒıÎªidxµÄÖµ£¬É¾³ı³É¹¦Ôò·µ»ØidxË÷ÒıµÄÖµ
+bool updateNum(int* arr, int idx, int num);//¸üĞÂµÚidxÎ»ÔªËØÎªnum
+bool pop(int* arr);//É¾³ıÊı×éµÄ0ºÅÔªËØ
+bool push(int* arr, int num);//¸øÊı×éÌí¼ÓĞÂµÄÔªËØ,Ìí¼ÓÔÚ×îºó
+bool destroyArray();//½«Êı×é´Ó¶ÑÇøÉ¾³ı
+const int& top(int* arr);//»ñÈ¡Êı×éµÄ0ºÅÔªËØ£¬·µ»ØÖµ
+const int& indexOf(int* arr, int num);//¸ù¾İÊäÈëÔªËØµÄÖµ·µ»Øµ±Ç°ÔªËØµÄµÚÒ»¸öË÷ÒıÖµ£¬Èç¹ûÎŞ£¬Ôò·µ»Ø-1
+const int& getValue(int* arr, int begin, int end, int idx);//¸ù¾İËù¸øµÄindex£¬·µ»ØÊı×éË÷ÒıÖµÎªindexµÄÖµ
+int* arraySort(bool key = true);//¸ù¾İËù¸øµÄÅÅĞò¹Ø¼ü´Êkey¾ö¶¨ÅÅĞò·½Ê½£ºkey=trueÔòÅÅÉıĞò£¬¿ìÅÅ£¬Ã°Åİ£¬²åÈë£¬Ñ¡Ôñ¶¼¿ÉÒÔ£¬²»ÏŞ·½Ê½
+int* arrayReverse();//Êı×éÄæĞò
+int* arrayStrip(int begin, int end);//¸ø³öÁ½¸öË÷ÒıÖµ£¬½ØÈ¡³öÁ½¸öË÷ÒıÖµÖ®¼äµÄÊı×é£¬×¢Òâ£¬Ë÷ÒıÖµ¿ÉÒÔÎª¸ºÊı£¬´ËÊ±ÄæÏò½ØÈ¡
 
-//æ‰€æœ‰çš„å‡½æ•°å®ç°ä¸­ï¼Œæ³¨æ„è¾¹ç•Œåˆ¤æ–­ï¼
+//ËùÓĞµÄº¯ÊıÊµÏÖÖĞ£¬×¢Òâ±ß½çÅĞ¶Ï£¡
 
 
-int main(){
+int main()
+{
     /*** Test ***/
-
-    return 0;
+    int *ptr=NULL;
+    cout<<insertNum(ptr,30,40)<<endl;
+    cout<<removeNum(ptr,40);
 }
