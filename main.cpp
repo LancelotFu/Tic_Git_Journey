@@ -101,13 +101,29 @@ int* arraySort(bool key = true);//¸ù¾İËù¸øµÄÅÅĞò¹Ø¼ü´Êkey¾ö¶¨ÅÅĞò·½Ê½£ºkey=trueÔ
 int* arrayReverse();//Êı×éÄæĞò
 int* arrayStrip(int begin, int end);//¸ø³öÁ½¸öË÷ÒıÖµ£¬½ØÈ¡³öÁ½¸öË÷ÒıÖµÖ®¼äµÄÊı×é£¬×¢Òâ£¬Ë÷ÒıÖµ¿ÉÒÔÎª¸ºÊı£¬´ËÊ±ÄæÏò½ØÈ¡
 
+bool push(int arr[], int num)
+{
+	int sizearr=0;
+	int size=sizeof(arr)/sizeof(int);
+	int array[size+1];
+	array[size]=num;
+	cout<<sizeof(arr);
+	for(int i=0;i<=size-1;i++)
+	{
+		array[i]=arr[i];
+	}
+	for(int j=0;j<=size;j++)
+	{
+		cout<<array[j]<<" ";
+	}
+		return true;
+}
 //ËùÓĞµÄº¯ÊıÊµÏÖÖĞ£¬×¢Òâ±ß½çÅĞ¶Ï£¡
 
 
 int main()
 {
     /*** Test ***/
-    int *ptr=NULL;
-    cout<<insertNum(ptr,30,40)<<endl;
-    cout<<removeNum(ptr,40);
+    int ptr[5]={1,2,3,4,5};
+    push(ptr,6);
 }
