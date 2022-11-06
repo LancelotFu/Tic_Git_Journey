@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.23)
-project(Tic_Git_Journey)
+project(new-branch-test)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Tic_Git_Journey main.cpp)
+add_executable(new-branch-test main.cpp)
