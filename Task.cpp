@@ -2,12 +2,12 @@
 * Created by LancelotFu    *
 * Email: 909104772@qq.com  *
 * Phone number: None       *
-* On 2022/10/28            *              
+* On 2022/10/28            *
 ****************************/
 #include <iostream>
 using namespace std;
 
-int* GenerateArray(int max_size)//è¿”å›ä¸€ä¸ªä¸€ç»´æ•°ç»„(å·²ç»™å®šæ•°ç»„é•¿åº¦æœ€å¤§å€¼)ï¼Œæ•°ç»„çš„å€¼å°†ä¼šç”±å‡½æ•°å†…çš„è¾“å…¥å†³å®š
+int* GenerateArray(int max_size)//·µ»ØÒ»¸öÒ»Î¬Êı×é(ÒÑ¸ø¶¨Êı×é³¤¶È×î´óÖµ)£¬Êı×éµÄÖµ½«»áÓÉº¯ÊıÄÚµÄÊäÈë¾ö¶¨
 {
     int i = 0;
     int str[1000] = { 0 };
@@ -17,7 +17,7 @@ int* GenerateArray(int max_size)//è¿”å›ä¸€ä¸ªä¸€ç»´æ•°ç»„(å·²ç»™å®šæ•°ç»„é•¿åº¦
     }
     return str;
 }
-void printArray(int* arr, int length)//éå†æ•°ç»„
+void printArray(int* arr, int length)//±éÀúÊı×é
 {
     int i = 0;
     for (i = 0; i < length; i++)
@@ -25,7 +25,7 @@ void printArray(int* arr, int length)//éå†æ•°ç»„
         printf("%d ", arr[i]);
     }
 }
-int insertNum(int* arr, int idx, int num, int length)//åœ¨ç¬¬idxä½åé¢æ’å…¥num, è¿”å›æ’å…¥çš„numçš„idx
+int insertNum(int* arr, int idx, int num, int length)//ÔÚµÚidxÎ»ºóÃæ²åÈënum, ·µ»Ø²åÈëµÄnumµÄidx
 {
     int i = 0;
     if (length > idx + 1)
@@ -42,7 +42,7 @@ int insertNum(int* arr, int idx, int num, int length)//åœ¨ç¬¬idxä½åé¢æ’å…¥n
         return idx + 1;
     }
 }
-int removeNum(int* arr, int idx, int length)//åˆ é™¤ç´¢å¼•ä¸ºidxçš„å€¼ï¼Œåˆ é™¤æˆåŠŸåˆ™è¿”å›idxç´¢å¼•çš„å€¼
+int removeNum(int* arr, int idx, int length)//É¾³ıË÷ÒıÎªidxµÄÖµ£¬É¾³ı³É¹¦Ôò·µ»ØidxË÷ÒıµÄÖµ
 {
     int i = 0;
     int m = arr[idx];
@@ -52,7 +52,7 @@ int removeNum(int* arr, int idx, int length)//åˆ é™¤ç´¢å¼•ä¸ºidxçš„å€¼ï¼Œåˆ é™¤æ
     }
     return m;
 }
-bool updateNum(int* arr, int idx, int num, int length)//æ›´æ–°ç¬¬idxä½å…ƒç´ ä¸ºnum
+bool updateNum(int* arr, int idx, int num, int length)//¸üĞÂµÚidxÎ»ÔªËØÎªnum
 {
     if (idx >= 0 && idx < length)
     {
@@ -63,31 +63,31 @@ bool updateNum(int* arr, int idx, int num, int length)//æ›´æ–°ç¬¬idxä½å…ƒç´ ä¸º
         return -1;
     }
 }
-bool pop(int* arr, int length)//åˆ é™¤æ•°ç»„çš„0å·å…ƒç´ 
+bool pop(int* arr, int length)//É¾³ıÊı×éµÄ0ºÅÔªËØ
 {
     int i = 0;
     for (i = 1; i < length; i++)
     {
         arr[i - 1] = arr[i];
     }
-    arr[length-1] = 0;
+    arr[length - 1] = 0;
 }
-bool push(int* arr, int num, int length)//ç»™æ•°ç»„æ·»åŠ æ–°çš„å…ƒç´ ,æ·»åŠ åœ¨æœ€å
+bool push(int* arr, int num, int length)//¸øÊı×éÌí¼ÓĞÂµÄÔªËØ,Ìí¼ÓÔÚ×îºó
 {
     scanf("%d", &num);
     arr[length] = num;
 }
-bool destroyArray(int* arr)//å°†æ•°ç»„ä»å †åŒºåˆ é™¤
+bool destroyArray(int* arr)//½«Êı×é´Ó¶ÑÇøÉ¾³ı
 {
     delete(*arr);
 }
-const int& top(int* arr)//è·å–æ•°ç»„çš„0å·å…ƒç´ ï¼Œè¿”å›å€¼
+const int& top(int* arr)//»ñÈ¡Êı×éµÄ0ºÅÔªËØ£¬·µ»ØÖµ
 {
     int n = 0;
     n = arr[0];
     return n;
 }
-int indexOf(int* arr, int num, int length);//æ ¹æ®è¾“å…¥å…ƒç´ çš„å€¼è¿”å›å½“å‰å…ƒç´ çš„ç¬¬ä¸€ä¸ªç´¢å¼•å€¼ï¼Œå¦‚æœæ— ï¼Œåˆ™è¿”å›-1
+int indexOf(int* arr, int num, int length);//¸ù¾İÊäÈëÔªËØµÄÖµ·µ»Øµ±Ç°ÔªËØµÄµÚÒ»¸öË÷ÒıÖµ£¬Èç¹ûÎŞ£¬Ôò·µ»Ø-1
 {
     int i = 0;
     for (i = 0; i < length; i++)
@@ -99,7 +99,7 @@ int indexOf(int* arr, int num, int length);//æ ¹æ®è¾“å…¥å…ƒç´ çš„å€¼è¿”å›å½“å‰
     }
     return -1;
 }
-const int& getValue(int* arr, int begin, int end, int idx, int length)//æ ¹æ®æ‰€ç»™çš„indexï¼Œè¿”å›æ•°ç»„ç´¢å¼•å€¼ä¸ºindexçš„å€¼
+const int& getValue(int* arr, int begin, int end, int idx, int length)//¸ù¾İËù¸øµÄindex£¬·µ»ØÊı×éË÷ÒıÖµÎªindexµÄÖµ
 {
     if (idx >= 0 && idx < length)
     {
@@ -110,7 +110,7 @@ const int& getValue(int* arr, int begin, int end, int idx, int length)//æ ¹æ®æ‰
         return -1;
     }
 }
-int* arraySort(int* arr, int length, bool key = true)//æ ¹æ®æ‰€ç»™çš„æ’åºå…³é”®è¯keyå†³å®šæ’åºæ–¹å¼ï¼škey=trueåˆ™æ’å‡åºï¼Œå¿«æ’ï¼Œå†’æ³¡ï¼Œæ’å…¥ï¼Œé€‰æ‹©éƒ½å¯ä»¥ï¼Œä¸é™æ–¹å¼
+int* arraySort(int* arr, int length, bool key = true)//¸ù¾İËù¸øµÄÅÅĞò¹Ø¼ü´Êkey¾ö¶¨ÅÅĞò·½Ê½£ºkey=trueÔòÅÅÉıĞò£¬¿ìÅÅ£¬Ã°Åİ£¬²åÈë£¬Ñ¡Ôñ¶¼¿ÉÒÔ£¬²»ÏŞ·½Ê½
 {
     int i = 0;
     int j = 0;
@@ -128,7 +128,7 @@ int* arraySort(int* arr, int length, bool key = true)//æ ¹æ®æ‰€ç»™çš„æ’åºå…³é
         }
     }
 }
-int* arrayReverse(int* arr, int length)//æ•°ç»„é€†åº
+int* arrayReverse(int* arr, int length)//Êı×éÄæĞò
 {
     int str[length] = 0;
     int i = 0;
@@ -138,8 +138,8 @@ int* arrayReverse(int* arr, int length)//æ•°ç»„é€†åº
     }
     return *str;
 }
-//ç¡®ä¿beginçš„ç»å¯¹å€¼å°äºend
-int* arrayStrip(int* arr, int begin, int end, int length)//ç»™å‡ºä¸¤ä¸ªç´¢å¼•å€¼ï¼Œæˆªå–å‡ºä¸¤ä¸ªç´¢å¼•å€¼ä¹‹é—´çš„æ•°ç»„ï¼Œæ³¨æ„ï¼Œç´¢å¼•å€¼å¯ä»¥ä¸ºè´Ÿæ•°ï¼Œæ­¤æ—¶é€†å‘æˆªå–
+//È·±£beginµÄ¾ø¶ÔÖµĞ¡ÓÚend
+int* arrayStrip(int* arr, int begin, int end, int length)//¸ø³öÁ½¸öË÷ÒıÖµ£¬½ØÈ¡³öÁ½¸öË÷ÒıÖµÖ®¼äµÄÊı×é£¬×¢Òâ£¬Ë÷ÒıÖµ¿ÉÒÔÎª¸ºÊı£¬´ËÊ±ÄæÏò½ØÈ¡
 {
     int str[length] = { 0 };
     int i = 0;
@@ -148,7 +148,7 @@ int* arrayStrip(int* arr, int begin, int end, int length)//ç»™å‡ºä¸¤ä¸ªç´¢å¼•å€¼
         int m = end - begin;
         for (i = 0; i < m; i++)
         {
-            str[i] = arr[begin+i];
+            str[i] = arr[begin + i];
         }
         return *str;
     }
@@ -163,14 +163,14 @@ int* arrayStrip(int* arr, int begin, int end, int length)//ç»™å‡ºä¸¤ä¸ªç´¢å¼•å€¼
     }
     else
     {
-        return -1;
+        return NULL;
     }
 }
 
-//æ‰€æœ‰çš„å‡½æ•°å®ç°ä¸­ï¼Œæ³¨æ„è¾¹ç•Œåˆ¤æ–­ï¼
+//ËùÓĞµÄº¯ÊıÊµÏÖÖĞ£¬×¢Òâ±ß½çÅĞ¶Ï£¡
 
 
-int main(){
+int main() {
     /*** Test ***/
 
     return 0;
