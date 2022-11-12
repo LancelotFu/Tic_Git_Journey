@@ -7,23 +7,23 @@
 #include <iostream>
 using namespace std;
 
-int* GenerateArray(int max_size);//è¿”å›ä¸€ä¸ªä¸€ç»´æ•°ç»„(å·²ç»™å®šæ•°ç»„é•¿åº¦æœ€å¤§å€¼)ï¼Œæ•°ç»„çš„å€¼å°†ä¼šç”±å‡½æ•°å†…çš„è¾“å…¥å†³å®š
-void printArray(int* arr, int length);//éå†æ•°ç»„
-int insertNum(int* arr, int idx, int num, int length);//åœ¨ç¬¬idxä½åé¢æ’å…¥num, è¿”å›æ’å…¥çš„numçš„idx
-int removeNum(int* arr, int idx, int length);//åˆ é™¤ç´¢å¼•ä¸ºidxçš„å€¼ï¼Œåˆ é™¤æˆåŠŸåˆ™è¿”å›idxç´¢å¼•çš„å€¼
-bool updateNum(int* arr, int idx, int num, int length);//æ›´æ–°ç¬¬idxä½å…ƒç´ ä¸ºnum
-bool pop(int* arr, int length);//åˆ é™¤æ•°ç»„çš„0å·å…ƒç´ 
-bool push(int* arr, int num, int length);//ç»™æ•°ç»„æ·»åŠ æ–°çš„å…ƒç´ ,æ·»åŠ åœ¨æœ€å
-bool destroyArray(int* arr);//å°†æ•°ç»„ä»å †åŒºåˆ é™¤
-const int& top(int* arr);//è·å–æ•°ç»„çš„0å·å…ƒç´ ï¼Œè¿”å›å€¼
-int indexOf(int* arr, int num, int length);//æ ¹æ®è¾“å…¥å…ƒç´ çš„å€¼è¿”å›å½“å‰å…ƒç´ çš„ç¬¬ä¸€ä¸ªç´¢å¼•å€¼ï¼Œå¦‚æœæ— ï¼Œåˆ™è¿”å›-1
-const int& getValue(int* arr, int begin, int end, int idx, int length);//æ ¹æ®æ‰€ç»™çš„indexï¼Œè¿”å›æ•°ç»„ç´¢å¼•å€¼ä¸ºindexçš„å€¼
-int* arraySort(int* arr, int length, bool key = true);//æ ¹æ®æ‰€ç»™çš„æ’åºå…³é”®è¯keyå†³å®šæ’åºæ–¹å¼ï¼škey=trueåˆ™æ’å‡åºï¼Œå¿«æ’ï¼Œå†’æ³¡ï¼Œæ’å…¥ï¼Œé€‰æ‹©éƒ½å¯ä»¥ï¼Œä¸é™æ–¹å¼
-int* arrayReverse(int* arr, int length);//æ•°ç»„é€†åº
-//ç¡®ä¿beginçš„ç»å¯¹å€¼å°äºend
-int* arrayStrip(int* arr, int begin, int end, int length);//ç»™å‡ºä¸¤ä¸ªç´¢å¼•å€¼ï¼Œæˆªå–å‡ºä¸¤ä¸ªç´¢å¼•å€¼ä¹‹é—´çš„æ•°ç»„ï¼Œæ³¨æ„ï¼Œç´¢å¼•å€¼å¯ä»¥ä¸ºè´Ÿæ•°ï¼Œæ­¤æ—¶é€†å‘æˆªå–
+int* GenerateArray(int max_size);//·µ»ØÒ»¸öÒ»Î¬Êı×é(ÒÑ¸ø¶¨Êı×é³¤¶È×î´óÖµ)£¬Êı×éµÄÖµ½«»áÓÉº¯ÊıÄÚµÄÊäÈë¾ö¶¨
+void printArray(int* arr, int length);//±éÀúÊı×é
+int insertNum(int* arr, int idx, int num, int length);//ÔÚµÚidxÎ»ºóÃæ²åÈënum, ·µ»Ø²åÈëµÄnumµÄidx
+int removeNum(int* arr, int idx, int length);//É¾³ıË÷ÒıÎªidxµÄÖµ£¬É¾³ı³É¹¦Ôò·µ»ØidxË÷ÒıµÄÖµ
+bool updateNum(int* arr, int idx, int num, int length);//¸üĞÂµÚidxÎ»ÔªËØÎªnum
+bool pop(int* arr, int length);//É¾³ıÊı×éµÄ0ºÅÔªËØ
+bool push(int* arr, int num, int length);//¸øÊı×éÌí¼ÓĞÂµÄÔªËØ,Ìí¼ÓÔÚ×îºó
+bool destroyArray(int* arr);//½«Êı×é´Ó¶ÑÇøÉ¾³ı
+const int& top(int* arr);//»ñÈ¡Êı×éµÄ0ºÅÔªËØ£¬·µ»ØÖµ
+int indexOf(int* arr, int num, int length);//¸ù¾İÊäÈëÔªËØµÄÖµ·µ»Øµ±Ç°ÔªËØµÄµÚÒ»¸öË÷ÒıÖµ£¬Èç¹ûÎŞ£¬Ôò·µ»Ø-1
+const int& getValue(int* arr, int begin, int end, int idx, int length);//¸ù¾İËù¸øµÄindex£¬·µ»ØÊı×éË÷ÒıÖµÎªindexµÄÖµ
+int* arraySort(int* arr, int length, bool key = true);//¸ù¾İËù¸øµÄÅÅĞò¹Ø¼ü´Êkey¾ö¶¨ÅÅĞò·½Ê½£ºkey=trueÔòÅÅÉıĞò£¬¿ìÅÅ£¬Ã°Åİ£¬²åÈë£¬Ñ¡Ôñ¶¼¿ÉÒÔ£¬²»ÏŞ·½Ê½
+int* arrayReverse(int* arr, int length);//Êı×éÄæĞò
+//È·±£beginµÄ¾ø¶ÔÖµĞ¡ÓÚend
+int* arrayStrip(int* arr, int begin, int end, int length);//¸ø³öÁ½¸öË÷ÒıÖµ£¬½ØÈ¡³öÁ½¸öË÷ÒıÖµÖ®¼äµÄÊı×é£¬×¢Òâ£¬Ë÷ÒıÖµ¿ÉÒÔÎª¸ºÊı£¬´ËÊ±ÄæÏò½ØÈ¡
 
-//æ‰€æœ‰çš„å‡½æ•°å®ç°ä¸­ï¼Œæ³¨æ„è¾¹ç•Œåˆ¤æ–­ï¼
+//ËùÓĞµÄº¯ÊıÊµÏÖÖĞ£¬×¢Òâ±ß½çÅĞ¶Ï£¡
 
 
 int main(){
@@ -31,3 +31,182 @@ int main(){
 
     return 0;
 }
+int* GenerateArray(int max_size)
+{
+	int arr[max_size];
+	for(int i=0;i<max_size;i++)
+	{
+		arr[i]=i;
+	}
+	return arr;
+}
+void printArray(int* arr, int length)
+{
+	for(int i=0;i<length;i++)
+	{
+		cout<<arr[i]<<" ";
+	}
+	return;
+}
+int insertNum(int* arr, int idx, int num, int length)
+{
+	if(idx>=length) return 1;
+	else 
+	{
+		int array[length+1];
+		for(int j=0;j<length;j++)
+		{
+			array[j]=arr[j];
+		}
+		for(int i=length;i>idx+1;i--)
+		{
+			arr[i]=arr[i-1];
+		}
+		arr[idx+1]=num;
+		return idx+1;
+	}
+}
+int removeNum(int* arr, int idx, int length)
+{
+	if(idx>=length) return 1;
+	else 
+	{
+		for(int i=idx;i<length-1;i++)
+		{
+			arr[i]=arr[i+1];
+		}
+		return idx;
+	}
+}
+bool updateNum(int* arr, int idx, int num, int length)
+{
+	if(idx>=length) return false;
+	else{
+		arr[idx]=num;
+		return true;
+	}
+}
+bool pop(int* arr, int length)
+{
+	for(int i=0;i<length-1;i++)
+	{
+		arr[i]=arr[i+1];
+		return true;
+	}
+}
+bool push(int* arr, int num, int length)
+{
+	int *array=new int[length+1];
+	array[length]=num;
+	for(int i=0;i<length;i++)
+	{
+		array[i]=arr[i];
+	}
+	return true;
+}
+bool destroyArray(int* arr)
+{
+	delete[] arr;
+	return true;
+}
+const int& top(int* arr)
+{
+	return arr[0];
+}
+int indexOf(int* arr, int num, int length)
+{
+	for(int i=0;i<length;i++)
+	{
+		if(num==arr[i]) return i;
+	}
+	return -1;
+}
+const int& getValue(int* arr, int begin, int end, int idx, int length)
+{
+	//I dont understand what this means.
+}
+int* arraySort(int* arr, int length, bool key)
+{
+	int temp=0;
+	if(key==true)
+	{
+	for(int i=0;i<length;i++)
+	{
+		for(int j=0;j<length-i-1;j++)
+		{
+			if(arr[i]>arr[i+1])
+			{
+				temp=arr[i];
+				arr[i]=arr[i+1];
+				arr[i+1]=temp;
+			}
+		}
+	}
+	}
+	else if(key==false)
+	{
+		for(int i=0;i<length;i++)
+	{
+		for(int j=0;j<length-i-1;j++)
+		{
+			if(arr[i]<arr[i+1])
+			{
+				temp=arr[i];
+				arr[i]=arr[i+1];
+				arr[i+1]=temp;
+			}
+		}
+	}
+	}
+	return arr;
+}
+int* arrayReverse(int* arr, int length)
+{
+	int b[length];
+	for(int i=0;i<length;i++)
+	{
+		b[i]=arr[i];
+	}
+	for(int j=0;j<length;j++)
+	{
+		arr[j]=b[length-j-1];
+	}
+	return arr;
+}
+int* arrayStrip(int* arr, int begin, int end, int length)
+{
+	int * array=new int[end-begin+1];
+	for(int i=begin;i<=end;i++)
+	{
+		array[i]=arr[i];
+	}
+	return array;
+}
+/*I am Idol trainee Caixukun and have practiced for two and a half years.I am from America.I like Sing Dance Rap Basketball.Music~~
+				  ¼¦ÄãÌ«ÃÀ 
+                   ??????
+                   ?????
+                    ????
+                ???????
+               ?? ???????  ?
+            ??  ???????   ??
+        ??     ???????      ??        
+    ??       ???????          ??
+  ??       ????????       ????
+? ?       ???????          ?????
+?            ????????         ???
+                ????????
+                  ????    ???
+                   ???         ???
+                     ??              ??
+                     ??                ??
+                      ??                ??
+                      ??                ??
+                    ? ?                ??
+                    ? ?                ????
+                     ??                ?? ??
+                    ??
+My school card ID is 202219198101
+Coming to me for fun is welcome*/
+
+
